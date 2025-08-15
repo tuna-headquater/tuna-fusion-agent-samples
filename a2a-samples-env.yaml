@@ -1,0 +1,18 @@
+apiVersion: fusion.tuna.ai/v1
+kind: AgentEnvironment
+metadata:
+  name: a2a-samples-env
+  namespace: a2a-samples-ns
+spec:
+  driver:
+    type: PodPool
+    podPoolSpec:
+      archivePvcName: shared-archive-pvc
+      poolSize: 3
+      builderImage: ghcr.io/tuna-headquater/fusion-a2a-env-builder:1754733437
+      runtimeImage: ghcr.io/tuna-headquater/fusion-a2a-fastapi-runtime:1754733437
+      builderPodServiceAccountName: fusion-builder-sa
+      runPerPod: 10
+      ttlPerPod: 86400
+  executor:
+    baseUrl: http://localhost:8082

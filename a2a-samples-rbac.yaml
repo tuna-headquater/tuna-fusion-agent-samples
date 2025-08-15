@@ -1,0 +1,44 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: fusion-builder-sa
+  namespace: a2a-samples-ns
+automountServiceAccountToken: true
+
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: a2a-samples-cluster-role
+rules:
+  - apiGroups:
+      - fusion.tuna.ai
+    resources:
+      - podpools
+      - podpools/status
+      - podfunctions
+      - podfunctions/status
+      - podfunctionbuilds
+      - podfunctionbuilds/status
+    verbs:
+      - get
+      - list
+      - create
+      - update
+      - delete
+      - patch
+      - watch
+
+---
+kind: ClusterRoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: a2a-samples-cluster-role-binding
+subjects:
+  - kind: ServiceAccount
+    name: fusion-builder-sa
+    namespace: a2a-samples-ns
+roleRef:
+  kind: ClusterRole
+  name: a2a-samples-cluster-role
+  apiGroup: rbac.authorization.k8s.io
