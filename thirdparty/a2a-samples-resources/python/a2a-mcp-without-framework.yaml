@@ -1,0 +1,27 @@
+apiVersion: fusion.tuna.ai/v1
+kind: AgentDeployment
+metadata:
+  name: a2a-mcp-without-framework
+  namespace: a2a-samples-ns
+spec:
+  agentCard:
+    capabilities:
+      streaming: true
+    defaultInputModes:
+      - text
+    defaultOutputModes:
+      - text
+    description: "A2A Protocol knowledge agent who has information about A2A Protocol and can answer questions about it"
+    name: A2A Protocol Agent
+    provider:
+      organization: Google A2A
+      url: https://github.com/a2aproject/a2a-samples/tree/main/samples/python/agents/a2a-mcp-without-framework
+    skills:
+      - description: The agent will look up the information about A2A repo and answer the question.
+        id: answer_detail_about_A2A_repo
+        name: Answer any information about A2A repo
+        tags:
+          - A2A repo
+    version: "1.0.0"
+  entrypoint: src.no_llm_framework.server.agent_executor.HelloWorldAgentExecutor
+  environmentName: a2a-samples-env
