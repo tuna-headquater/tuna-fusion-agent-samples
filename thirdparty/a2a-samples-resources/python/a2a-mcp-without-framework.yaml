@@ -25,3 +25,5 @@ spec:
     version: "1.0.0"
   entrypoint: src.no_llm_framework.server.agent_executor.HelloWorldAgentExecutor
   environmentName: a2a-samples-env
+  git:
+    subPath: thirdparty/a2a-samples/samples/python/agents/a2a-mcp-without-framework
