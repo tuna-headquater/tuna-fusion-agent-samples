@@ -1,0 +1,30 @@
+apiVersion: fusion.tuna.ai/v1
+kind: AgentDeployment
+metadata:
+  name: langgraph
+  namespace: a2a-samples-ns
+spec:
+  environmentName: a2a-samples-env
+  entrypoint: app.agent_executor.CurrencyAgentExecutor
+  agentCard:
+    capabilities:
+      streaming: true
+      pushNotifications: true
+    defaultInputModes:
+      - text
+      - text/plain
+    defaultOutputModes:
+      - text
+      - text/plain
+    description: Helps with exchange rates for currencies
+    name: Currency Exchange Rates Tool
+    skills:
+      - description: Helps with exchange values between various currencies
+        id: convert_currency
+        name: Currency Exchange Rates Tool
+        tags:
+          - currency conversion
+          - currency exchange
+    version: "1.0.0"
+  git:
+    subPath: thirdparty/a2a-samples/samples/python/agents/langgraph
