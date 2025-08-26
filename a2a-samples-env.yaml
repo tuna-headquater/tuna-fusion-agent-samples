@@ -12,5 +12,10 @@ spec:
       builderPodServiceAccountName: fusion-builder-sa
       runPerPod: 10
       ttlPerPod: 86400
+      runtimePodSpec:
+        containers:
+          - env:
+              - name: GOOGLE_API_KEY
+                value: "please replace with your own api key"
   executor:
     baseUrl: http://localhost:8082
