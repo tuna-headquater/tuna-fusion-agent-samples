@@ -2,11 +2,24 @@
 
 This repository contains sample agent implementations to demonstrate the workflow to deploy agents to `tuna-fusion` runtime.
 
-The following instruction assume you have a properly installed `tuna-fusion` instance. And you can access the GitOps server by `tuna-fusion-gitops-server.default.svc.cluster.local` on port 80.
+The following instruction assume you have a properly installed `tuna-fusion` instance. And you can access:
+
+* the GitOps server by `tuna-fusion-gitops-server.default.svc.cluster.local` on port 80
+* the executor server by `tuna-fusion-executor.default.svc.cluster.local` on port 80
+
+You can learn more about installation at [project homepage](https://tuna-headquater.github.io/tuna-fusion/latest/).
+
+Before continue, please make sure you have initialized submodules of this repository:
+
+
+```shell
+git submodule update --init --recursive
+```
+
 
 ## Migrated samples from `a2a-samples` project
 
-These agents have less code lines and are easy to understand. You use these agents as a start point to validate the deployment workflow.  
+These agents have less code lines and are easy to understand. You use these agents as a start point to validate the deployment workflow. 
 
 
 | Name                      | Description                                                               | Agent framework |
