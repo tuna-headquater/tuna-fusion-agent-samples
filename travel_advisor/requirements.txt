@@ -1,6 +1,0 @@
-a2a-sdk
-langchain
-langchain-core
-langchain-openai
-httpx
-uvicorn
