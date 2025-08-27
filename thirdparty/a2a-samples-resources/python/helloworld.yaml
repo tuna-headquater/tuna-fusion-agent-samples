@@ -1,0 +1,29 @@
+apiVersion: fusion.tuna.ai/v1
+kind: AgentDeployment
+metadata:
+  name: helloworld
+  namespace: a2a-samples-ns
+spec:
+  environmentName: a2a-samples-env
+  entrypoint: agent_executor.HelloWorldAgentExecutor
+  agentCard:
+    capabilities:
+      streaming: true
+      pushNotifications: true
+    defaultInputModes:
+      - text
+    defaultOutputModes:
+      - text
+    description: Just a hello world agent
+    name: Hello World Agent
+    skills:
+      - description: A more enthusiastic greeting, only for authenticated users.
+        id: super_hello_world
+        name: Returns a SUPER Hello World
+        tags:
+          - hello world
+          - super
+          - extended
+    version: "1.0.0"
+  git:
+    subPath: thirdparty/a2a-samples/samples/python/agents/helloworld

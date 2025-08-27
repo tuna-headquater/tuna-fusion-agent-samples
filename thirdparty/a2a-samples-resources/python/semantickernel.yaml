@@ -1,0 +1,32 @@
+apiVersion: fusion.tuna.ai/v1
+kind: AgentDeployment
+metadata:
+  name: semantickernel
+  namespace: a2a-samples-ns
+spec:
+  environmentName: a2a-samples-env
+  entrypoint: agent_executor.SemanticKernelTravelAgentExecutor
+  agentCard:
+    capabilities:
+      streaming: true
+      pushNotifications: true
+    defaultInputModes:
+      - text
+    defaultOutputModes:
+      - text
+    description: Handles comprehensive trip planning, including currency exchanges, itinerary creation, sightseeing, '
+            'dining recommendations, and event bookings using Frankfurter API for currency conversions.
+    name: Semantic Kernel Trip Planning
+    skills:
+      - description: Semantic Kernel-based travel agent providing comprehensive trip planning services including currency exchange and personalized activity planning.
+        id: trip_planning_sk
+        name: SK Travel Agent
+        tags:
+          - trip
+          - planning
+          - travel
+          - currency
+          - semantic-kernel
+    version: "1.0.0"
+  git:
+    subPath: thirdparty/a2a-samples/samples/python/agents/semantickernel

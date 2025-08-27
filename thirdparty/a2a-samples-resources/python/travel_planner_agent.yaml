@@ -1,0 +1,38 @@
+apiVersion: fusion.tuna.ai/v1
+kind: AgentDeployment
+metadata:
+  name: travelplanner
+  namespace: a2a-samples-ns
+spec:
+  environmentName: a2a-samples-env
+  entrypoint: agent_executor.TravelPlannerAgentExecutor
+  agentCard:
+    capabilities:
+      streaming: true
+      pushNotifications: false
+    defaultInputModes:
+      - text
+    defaultOutputModes:
+      - text
+    description: travel planner
+    name: travel planner Agent
+    skills:
+      - description: travel planner
+        id: travel_planner
+        name: travel planner agent
+        tags:
+          - hello
+          - nice to meet you!
+    version: "1.0.0"
+  git:
+    subPath: thirdparty/a2a-samples/samples/python/agents/travel_planner_agent
+  fileAssets:
+    - content: |-
+        {
+          "model_name":"gemini-2.5-flash",
+          "api_key": "GOOGLE_API_KEY",
+          "base_url": "https://generativelanguage.googleapis.com/v1beta/openai/"
+        }
+      executable: false
+      fileName: config.json
+      targetDirectory: DEPLOY_ARCHIVE

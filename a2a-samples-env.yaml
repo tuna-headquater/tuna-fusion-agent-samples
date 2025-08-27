@@ -16,6 +16,17 @@ spec:
         containers:
           - env:
               - name: GOOGLE_API_KEY
-                value: "please replace with your own api key"
+                value: "<YOU APIKEY HERE>"
+              - name: OPENAI_API_KEY
+                value: "<YOU APIKEY HERE>"
+              - name: AZURE_OPENAI_API_KEY
+                value: "<YOU APIKEY HERE>"
+              - name: AZURE_OPENAI_ENDPOINT
+                value: https://your-resource.openai.azure.com/
+              - name: AZURE_OPENAI_CHAT_DEPLOYMENT_NAME
+                value: "<AZURE_OPENAI_CHAT_DEPLOYMENT_NAME>"
+              - name: AZURE_OPENAI_API_VERSION
+                value: "2024-12-01-preview"
+
   executor:
     baseUrl: http://localhost:8082
